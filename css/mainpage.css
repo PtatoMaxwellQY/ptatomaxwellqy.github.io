@@ -6,12 +6,12 @@ body{
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    width: 1400px;
+    width: 1300px;
 }
 .block-main{
     background-color: rgb(255, 255, 255, 0.4); 
     margin: 0 auto; 
-    width: 1400px;
+    width: 1300px;
     margin-right: 5px;
     margin-left: 0px;
     float: left;
@@ -28,7 +28,7 @@ body{
     margin-left: 5px;
 }
 .my-name{
-    font-size: x-large;
+    font-size: xx-large;
 }
 .language_block{
     padding-right: 20px;
@@ -54,9 +54,18 @@ body{
     margin: 0 auto;
     width: 96%;
 }
+
+.keywords{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: large;
+    line-height: 150%;
+    margin: 0 auto;
+    width: 96%; 
+}
 .section-title {
+    /*font-family: "Lucida Console", "Courier New", monospace;*/
     margin-bottom: 0px;
-    font-size: larger;
+    font-size: x-large;
     font-weight: bold;
     color: #609;
     margin: 0 auto;
@@ -67,7 +76,7 @@ body{
     margin: 0 auto; 
     width: 98%; 
     font-family: Arial, Helvetica, sans-serif; 
-    font-size: medium;
+    font-size: large;
 }
 .table{
     width: 95%;
