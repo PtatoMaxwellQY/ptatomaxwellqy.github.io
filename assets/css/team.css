@@ -1,0 +1,294 @@
+/* ========== Team Directory ========== */
+body {
+    background: #08111f;
+}
+
+#team.wrapper {
+    margin-top: 0 !important;
+}
+
+.pixova-team-section {
+    min-height: 100vh;
+    padding: 7em 0 4em;
+    background:
+        linear-gradient(135deg, rgba(132, 189, 160, 0.13), transparent 32%),
+        linear-gradient(180deg, #101827 0%, #07101d 100%);
+}
+
+.pixova-team-section .inner {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+.pixova-team-section h2.major {
+    max-width: 760px;
+    color: #ffffff;
+    border-bottom: none;
+    margin: 0 auto 0.35em;
+    text-align: center;
+    font-size: 2.8em;
+    letter-spacing: 0.08em;
+}
+
+.pixova-team-section .inner > p {
+    max-width: 760px;
+    margin: 0 auto 1.5em;
+    color: rgba(226, 239, 255, 0.74);
+    text-align: center;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+
+.team-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75em;
+    margin: 0 auto 3em;
+}
+
+.team-highlights span {
+    padding: 0.55em 0.85em;
+    border: 1px solid rgba(154, 216, 216, 0.25);
+    border-radius: 999px;
+    color: rgba(226, 239, 255, 0.85);
+    background: rgba(132, 189, 160, 0.08);
+    font-family: Raleway, Helvetica, sans-serif;
+    font-size: 0.72em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.2em;
+}
+
+.pixova-team {
+    position: relative;
+    min-width: 0;
+    padding: 1.25em;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.24);
+    opacity: 1;
+    overflow: hidden;
+    transform: translateY(0);
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.pixova-team::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(154, 216, 216, 0.13), transparent 38%);
+    opacity: 0;
+    transition: opacity 0.28s ease;
+    pointer-events: none;
+}
+
+.pixova-team:hover {
+    transform: translateY(-8px);
+    border-color: rgba(132, 189, 160, 0.46);
+    box-shadow: 0 32px 70px rgba(0, 0, 0, 0.34);
+}
+
+.pixova-team:hover::before {
+    opacity: 1;
+}
+
+.pixova-team-image {
+    position: relative;
+    margin-bottom: 1.1em;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #111827;
+}
+
+.pixova-team-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+    filter: saturate(0.94) contrast(1.02);
+    transition: transform 0.38s ease, filter 0.38s ease;
+}
+
+.pixova-team:hover .pixova-team-img {
+    transform: scale(1.045);
+    filter: saturate(1.05) contrast(1.06);
+}
+
+.pixova-team-description {
+    position: absolute;
+    left: 1em;
+    right: 1em;
+    bottom: 1em;
+    display: flex;
+    justify-content: center;
+    gap: 0.55em;
+    padding: 0.55em;
+    border-radius: 999px;
+    background: rgba(4, 10, 20, 0.72);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.pixova-team-image:hover .pixova-team-description,
+.pixova-team:hover .pixova-team-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pixova-team-member-icon {
+    display: inline-flex;
+}
+
+.pixova-team-member-icon a {
+    width: 2em;
+    height: 2em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border-bottom: none;
+    border-radius: 999px;
+    transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.pixova-team-member-icon a:hover {
+    color: #67e8f9 !important;
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+}
+
+.pixova-team-member-name {
+    position: relative;
+    margin: 0 0 0.5em;
+    color: #ffffff;
+    font-family: Raleway, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: none;
+}
+
+.pixova-team-member-description {
+    min-height: 3.4em;
+    color: rgba(226, 239, 255, 0.74);
+    font-size: 0.94em;
+    line-height: 1.45;
+}
+
+.pixova-team.animated {
+    animation: teamRise 0.65s cubic-bezier(0.2, 0.9, 0.4, 1.05) forwards;
+}
+
+.pixova-team.animated:nth-child(2) { animation-delay: 0.06s; }
+.pixova-team.animated:nth-child(3) { animation-delay: 0.12s; }
+.pixova-team.animated:nth-child(4) { animation-delay: 0.18s; }
+.pixova-team.animated:nth-child(5) { animation-delay: 0.24s; }
+.pixova-team.animated:nth-child(6) { animation-delay: 0.30s; }
+.pixova-team.animated:nth-child(7) { animation-delay: 0.36s; }
+.pixova-team.animated:nth-child(8) { animation-delay: 0.42s; }
+
+@keyframes teamRise {
+    0% {
+        opacity: 0;
+        transform: translateY(26px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#header.alt {
+    background-color: rgba(7, 16, 29, 0.78) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+}
+
+@media screen and (max-width: 1180px) {
+    .team-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .pixova-team-section {
+        padding-top: 6em;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pixova-team-section h2.major {
+        font-size: 2.1em;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .pixova-team-section .inner {
+        padding: 0 1em;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pixova-team-img {
+        height: 220px;
+    }
+}
+
+/* OptiHK palette refresh */
+body {
+    background: #0b1012;
+}
+
+.pixova-team-section {
+    background:
+        linear-gradient(135deg, rgba(132, 189, 160, 0.13), transparent 32%),
+        linear-gradient(180deg, #11191b 0%, #0b1012 100%);
+}
+
+.pixova-team-section .inner > p,
+.pixova-team-member-description {
+    color: rgba(237, 244, 242, 0.74);
+}
+
+.team-highlights span {
+    border-color: rgba(154, 216, 216, 0.25);
+    color: rgba(237, 244, 242, 0.86);
+    background: rgba(132, 189, 160, 0.08);
+}
+
+.pixova-team {
+    border-color: rgba(237, 244, 242, 0.12);
+    background: linear-gradient(180deg, rgba(237, 244, 242, 0.075), rgba(237, 244, 242, 0.035));
+}
+
+.pixova-team::before {
+    background: linear-gradient(135deg, rgba(154, 216, 216, 0.13), transparent 38%);
+}
+
+.pixova-team:hover {
+    border-color: rgba(132, 189, 160, 0.46);
+}
+
+.pixova-team-member-icon a:hover {
+    color: #9ad8d8 !important;
+}
+
+#header.alt {
+    background-color: rgba(10, 16, 18, 0.72) !important;
+}
