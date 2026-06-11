@@ -73,7 +73,9 @@ class HomepageStaticTest(unittest.TestCase):
     def test_homepage_header_has_simplified_tabs_and_shared_mark(self):
         self.assertIn('<span class="brand-mark" aria-hidden="true">', self.html)
         self.assertIn('<svg viewBox="0 0 32 32"', self.html)
-        self.assertIn('<img src="./images/navbar_logo.png" alt="OptiHK">', self.html)
+        self.assertIn('<img class="theme-logo" src="./images/optihk_dark.png"', self.html)
+        self.assertIn('data-logo-bright="./images/optihk_bright.png"', self.html)
+        self.assertIn('data-logo-dark="./images/optihk_dark.png"', self.html)
         self.assertNotIn('<span class="brand-text">Silicon photonics</span>', self.html)
         self.assertNotIn('class="nav-cta"', self.html)
         header = self.html.split('<header class="site-header">', 1)[1].split('</header>', 1)[0]

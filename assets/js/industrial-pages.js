@@ -1,6 +1,6 @@
 (function () {
     var root = document.documentElement;
-    var buttons = document.querySelectorAll('[data-theme-choice]');
+    var toggle = document.getElementById('theme-toggle');
     var storageKey = 'optihk-theme';
     var storedTheme = null;
 
@@ -12,8 +12,12 @@
 
     function setTheme(choice, persist) {
         root.setAttribute('data-theme', choice);
-        buttons.forEach(function (button) {
-            button.setAttribute('aria-pressed', String(button.getAttribute('data-theme-choice') === choice));
+        if (toggle) toggle.setAttribute('data-theme', choice);
+        document.querySelectorAll('.theme-logo').forEach(function (logo) {
+            var nextSource = choice === 'bright' ? logo.getAttribute('data-logo-bright') : logo.getAttribute('data-logo-dark');
+            if (nextSource && logo.getAttribute('src') !== nextSource) {
+                logo.setAttribute('src', nextSource);
+            }
         });
         if (persist) {
             try {
@@ -24,13 +28,14 @@
         }
     }
 
-    buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            setTheme(button.getAttribute('data-theme-choice'), true);
+    if (toggle) {
+        toggle.addEventListener('click', function () {
+            var current = root.getAttribute('data-theme');
+            setTheme(current === 'bright' ? 'dark' : 'bright', true);
         });
-    });
+    }
 
-    setTheme(storedTheme || root.getAttribute('data-theme') || 'dark', false);
+    setTheme(storedTheme || root.getAttribute('data-theme') || 'bright', false);
 })();
 
 (function () {

@@ -1,0 +1,66 @@
+    <footer class="site-footer">
+        <div class="container footer-main">
+            <section class="footer-company" aria-label="OptiHK company information">
+                <img class="footer-brand theme-logo" src="./images/optihk_dark.png" data-logo-bright="./images/optihk_bright.png" data-logo-dark="./images/optihk_dark.png" alt="OptiHK">
+                <p>OptiHK develops silicon photonics, optical I/O engines, sensing platforms, and photonic automation tools for compact optical systems.</p>
+                <div class="footer-company-info">
+                    <span>Unit 1015, Building 19W, 19 Science Park West Avenue, Pak Shek Kok, N.T., Hong Kong</span>
+                    <a href="mailto:info@optihk.com">Contact: info@optihk.com</a>
+                </div>
+            </section>
+            <div class="footer-links" aria-label="Footer navigation">
+                <section class="footer-column">
+                    <h2>Solutions</h2>
+                    <nav aria-label="Footer solutions navigation">
+                        <a href="Products.html">Optical IO solutions</a>
+                        <a href="Products.html">{{FOOTER_SENSING}}</a>
+                        <a href="Products.html">Photonic automation</a>
+                    </nav>
+                </section>
+                <section class="footer-column">
+                    <h2>Company</h2>
+                    <nav aria-label="Footer company navigation">
+                        <a href="team.html">Team</a>
+                        <a href="news.html">News</a>
+                    </nav>
+                </section>
+                <section class="footer-column">
+                    <h2>Careers</h2>
+                    <nav aria-label="Footer careers navigation">
+                        <a href="carrers.html">Open roles</a>
+                        <a href="#footer-contact-title">Send CV</a>
+                        <a href="#footer-contact-title">Product inquiry</a>
+                    </nav>
+                </section>
+            </div>
+            <section class="footer-contact-box" aria-labelledby="footer-contact-title">
+                <h2 id="footer-contact-title">Communication</h2>
+                <p>Send a note for hiring, collaboration, supplier discussion, or product interest.</p>
+                <form class="footer-form" action="/api/contact" method="post">
+                    <input type="hidden" name="source" value="footer">
+                    <div class="footer-form-row">
+                        <div>
+                            <label for="footer-name">Name</label>
+                            <input type="text" id="footer-name" name="name" autocomplete="name" required>
+                        </div>
+                        <div>
+                            <label for="footer-email">Email</label>
+                            <input type="email" id="footer-email" name="email" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="footer-message">Message</label>
+                        <textarea id="footer-message" name="message" required></textarea>
+                    </div>
+                    <button class="footer-submit" type="submit">Send message</button>
+                </form>
+            </section>
+        </div>
+        <div class="container footer-bottom">
+            <div class="footer-legal">
+                <span>Copyright &copy; 2026 OptiHK. All Rights Reserved.</span>
+                <a href="mailto:info@optihk.com">Contact: info@optihk.com</a>
+            </div>
+            <span class="footer-meta">Silicon photonics, optical I/O, and advanced photonic packaging.</span>
+        </div>
+    </footer>

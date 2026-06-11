@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="bright">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/industrial-pages.css">
 </head>
-<body class="product-page">
-    <canvas id="bg-canvas"></canvas>
+<body class="product-page has-interactive-bg">
+    <canvas id="bg-canvas" data-bg-variant="product" aria-hidden="true"></canvas>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
         <div class="nav-shell">
@@ -19,23 +19,24 @@
                         <path d="M5 16h7l4-8 4 16 4-8h3" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
                     </svg>
                 </span>
-                <img src="./images/navbar_logo.png" alt="OptiHK">
+                <img class="theme-logo" src="./images/optihk_dark.png" data-logo-bright="./images/optihk_bright.png" data-logo-dark="./images/optihk_dark.png" alt="OptiHK">
             </a>
             <nav class="desktop-nav" aria-label="Primary navigation">
                 <a href="index.html">Home</a>
-                <a href="Technology.html">Technology</a>
                 <a href="Products.html" aria-current="page">Products</a>
-                <a href="jobs.html">Jobs</a>
+                <a href="carrers.html">Careers</a>
                 <a href="news.html">News</a>
                 <a href="team.html">Team</a>
             </nav>
-            <div class="theme-selector" role="group" aria-label="Color mode selection">
-                <button type="button" data-theme-choice="bright" aria-pressed="false">Bright</button>
-                <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
-            </div>
             <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
         </div>
     </header>
+
+    <button class="theme-toggle" type="button" id="theme-toggle" data-theme="bright" aria-label="Toggle color mode" title="Toggle dark/light mode">
+        <span class="theme-toggle-thumb"></span>
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
 
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <div class="mobile-menu-panel">
@@ -45,9 +46,8 @@
             </div>
             <nav aria-label="Mobile navigation">
                 <a href="index.html">Home</a>
-                <a href="Technology.html">Technology</a>
                 <a href="Products.html">Products</a>
-                <a href="jobs.html">Jobs</a>
+                <a href="carrers.html">Careers</a>
                 <a href="news.html">News</a>
                 <a href="team.html">Team</a>
             </nav>
@@ -58,7 +58,7 @@
         <section class="page-hero">
             <div>
                 <span class="eyebrow">Product portfolio</span>
-                <h1 class="page-title">OptiHK product solutions.</h1>
+                <h1 class="page-title">Photonic IC product solutions.</h1>
                 <p class="page-lede">Optical IO, mini sensing, and photonic automation solutions for teams building silicon photonic systems.</p>
             </div>
         </section>
@@ -67,7 +67,6 @@
             <div class="product-wrap">
                 <section class="product-solution-group" aria-labelledby="optical-io-title">
                     <div class="solution-heading">
-                        <span class="meta-label">Solution 01</span>
                         <h2 id="optical-io-title">Optical IO solutions</h2>
                     </div>
 
@@ -83,7 +82,6 @@
                             <img src="images/banner/DSC_2976.webp" alt="Photonic chip detail for co-packaged optics OE engine" width="1200" height="750" decoding="async">
                         </div>
                     </article>
-
                     <article class="product-lane reveal-on-scroll" id="product2">
                         <div class="product-index">02</div>
                         <div class="product-copy">
@@ -100,15 +98,14 @@
 
                 <section class="product-solution-group" aria-labelledby="mini-sensing-title">
                     <div class="solution-heading">
-                        <span class="meta-label">Solution 02</span>
                         <h2 id="mini-sensing-title">Mini sensing solutions</h2>
                     </div>
 
                     <article class="product-lane reveal-on-scroll" id="product3">
                         <div class="product-index">03</div>
                         <div class="product-copy">
-                            <span class="meta-label">Mini sensing</span>
-                            <h2>SiPh spectrometers</h2>
+                            <span class="meta-label">SpeX2000F Sereis</span>
+                            <h2>SiPh spectrometers for industrial sensing</h2>
                             <p>Miniaturized silicon photonic spectrometer modules for compact optical measurement systems and application-specific sensing paths.</p>
                             <div class="tag-row"><span class="tag">Spectrometer</span><span class="tag">Compact optics</span><span class="tag">Custom sensing</span></div>
                         </div>
@@ -120,28 +117,19 @@
 
                 <section class="product-solution-group" aria-labelledby="automation-title">
                     <div class="solution-heading">
-                        <span class="meta-label">Solution 03</span>
                         <h2 id="automation-title">Photonic Automation solutions</h2>
                     </div>
 
                     <article class="product-lane reveal-on-scroll" id="product4">
                         <div class="product-index">04</div>
                         <div class="product-copy">
-                            <span class="meta-label">Automation</span>
-                            <h2>MxPIC EDA tools</h2>
+                            <span class="meta-label">MXPIC Ecosystem</span>
+                            <h2>End-to-end photonic EDA environment</h2>
                             <p>Photonic automation software for connecting schematic intent, layout constraints, package interfaces, and verification loops.</p>
                             <div class="tag-row"><span class="tag">PIC design</span><span class="tag">Layout flow</span><span class="tag">Verification</span></div>
                         </div>
-                        <div class="product-image product-mark-panel">
-                            <div class="mxpic-mark" aria-hidden="true">
-                                <svg viewBox="0 0 160 112" fill="none">
-                                    <path d="M16 88V24l34 34 30-34 30 34 34-34v64" stroke="currentColor" stroke-width="8" stroke-linejoin="miter"/>
-                                    <path d="M48 88h64M80 24v64" stroke="var(--opti-secondary)" stroke-width="6" stroke-linecap="square"/>
-                                    <circle cx="48" cy="88" r="6" fill="var(--opti-critical)"/>
-                                    <circle cx="112" cy="88" r="6" fill="var(--opti-critical)"/>
-                                </svg>
-                                <span>MxPIC</span>
-                            </div>
+                        <div class="product-image product-eda-figure">
+                            <img src="images/products/mxpic_EDA.gif" alt="MxPIC EDA photonic automation workflow preview" width="1920" height="982" decoding="async">
                         </div>
                     </article>
                 </section>
@@ -160,143 +148,87 @@
                         <span class="meta-label">Customer / partner inquiry</span>
                         <h2>Map a product lane to your optical system target.</h2>
                     </div>
-                    <a class="button-link" href="index.html#contact">Contact US</a>
+                    <a class="button-link" href="index.html#footer-contact-title">Contact US</a>
                 </div>
             </div>
         </section>
     </main>
-
     <footer class="site-footer">
-        <div class="container footer-row">
-            <span>Copyright &copy; 2026 OptiHK. All Rights Reserved.</span>
-            <span>Silicon photonics, optical IO, mini sensing, and photonic automation.</span>
+        <div class="container footer-main">
+            <section class="footer-company" aria-label="OptiHK company information">
+                <img class="footer-brand theme-logo" src="./images/optihk_dark.png" data-logo-bright="./images/optihk_bright.png" data-logo-dark="./images/optihk_dark.png" alt="OptiHK">
+                <p>OptiHK develops silicon photonics, optical I/O engines, sensing platforms, and photonic automation tools for compact optical systems.</p>
+                <div class="footer-company-info">
+                    <span>Unit 1015, Building 19W, 19 Science Park West Avenue, Pak Shek Kok, N.T., Hong Kong</span>
+                    <a href="mailto:info@optihk.com">Contact: info@optihk.com</a>
+                </div>
+            </section>
+            <div class="footer-links" aria-label="Footer navigation">
+                <section class="footer-column">
+                    <h2>Solutions</h2>
+                    <nav aria-label="Footer solutions navigation">
+                        <a href="Products.html">Optical IO solutions</a>
+                        <a href="Products.html">Mini sensing solutions</a>
+                        <a href="Products.html">Photonic automation</a>
+                    </nav>
+                </section>
+                <section class="footer-column">
+                    <h2>Company</h2>
+                    <nav aria-label="Footer company navigation">
+                        <a href="team.html">Team</a>
+                        <a href="news.html">News</a>
+                    </nav>
+                </section>
+                <section class="footer-column">
+                    <h2>Careers</h2>
+                    <nav aria-label="Footer careers navigation">
+                        <a href="carrers.html">Open roles</a>
+                        <a href="#footer-contact-title">Send CV</a>
+                        <a href="#footer-contact-title">Product inquiry</a>
+                    </nav>
+                </section>
+            </div>
+            <section class="footer-contact-box" aria-labelledby="footer-contact-title">
+                <h2 id="footer-contact-title">Communication</h2>
+                <p>Send a note for hiring, collaboration, supplier discussion, or product interest.</p>
+                <form class="footer-form" action="/api/contact" method="post">
+                    <input type="hidden" name="source" value="footer">
+                    <div class="footer-form-row">
+                        <div>
+                            <label for="footer-name">Name</label>
+                            <input type="text" id="footer-name" name="name" autocomplete="name" required>
+                        </div>
+                        <div>
+                            <label for="footer-email">Email</label>
+                            <input type="email" id="footer-email" name="email" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="footer-message">Message</label>
+                        <textarea id="footer-message" name="message" required></textarea>
+                    </div>
+                    <button class="footer-submit" type="submit">Send message</button>
+                </form>
+            </section>
+        </div>
+        <div class="container footer-bottom">
+            <div class="footer-legal">
+                <span>Copyright &copy; 2026 OptiHK. All Rights Reserved.</span>
+                <a href="mailto:info@optihk.com">Contact: info@optihk.com</a>
+            </div>
+            <span class="footer-meta">Silicon photonics, optical I/O, and advanced photonic packaging.</span>
         </div>
     </footer>
-    <script src="assets/js/industrial-pages.js"></script>
+
+    
     <script>
         (function () {
-            const canvas = document.getElementById('bg-canvas');
-            const ctx = canvas.getContext('2d');
-            let mouseX = -1000;
-            let mouseY = -1000;
-            let mousePresent = false;
-            let width = 0;
-            let height = 0;
-            let PARTICLE_COUNT = 120;
-            const LINE_COLOR = '#84bda0';
-            const LINE_GLOW = '#9ad8d8';
-            const DOT_COLOR = '#d96a72';
-            const BG_COLOR = '#0b1012';
-            const CONNECT_DISTANCE = 150;
-            const MAX_FORCE_DIST = 180;
-            const MARGIN = 30;
-            const FRICTION = 0.96;
-            const REPEL_FORCE = 1.8;
-            let particles = [];
-
-            function initParticles() {
-                particles = [];
-                for (let i = 0; i < PARTICLE_COUNT; i++) {
-                    particles.push({
-                        x: Math.random() * (width - 2 * MARGIN) + MARGIN,
-                        y: Math.random() * (height - 2 * MARGIN) + MARGIN,
-                        vx: (Math.random() - 0.5) * 0.5,
-                        vy: (Math.random() - 0.5) * 0.5
-                    });
-                }
-            }
-
-            function resizeCanvas() {
-                width = window.innerWidth;
-                height = window.innerHeight;
-                canvas.width = width;
-                canvas.height = height;
-                PARTICLE_COUNT = width <= 480 ? 40 : width <= 800 ? 70 : 120;
-                initParticles();
-            }
-
-            function onMouseMove(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                mousePresent = true;
-            }
-
-            function updateParticles() {
-                particles.forEach(function (p) {
-                    if (mousePresent) {
-                        const dx = p.x - mouseX;
-                        const dy = p.y - mouseY;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < MAX_FORCE_DIST && dist > 0.5) {
-                            const force = (1 - dist / MAX_FORCE_DIST) * REPEL_FORCE;
-                            p.vx += (dx / dist) * force;
-                            p.vy += (dy / dist) * force;
-                        }
-                    }
-                    p.vx += (Math.random() - 0.5) * 0.06;
-                    p.vy += (Math.random() - 0.5) * 0.06;
-                    p.vx *= FRICTION;
-                    p.vy *= FRICTION;
-                    p.x += p.vx;
-                    p.y += p.vy;
-                    if (p.x < MARGIN || p.x > width - MARGIN) p.vx *= -0.9;
-                    if (p.y < MARGIN || p.y > height - MARGIN) p.vy *= -0.9;
-                    p.x = Math.min(width - MARGIN, Math.max(MARGIN, p.x));
-                    p.y = Math.min(height - MARGIN, Math.max(MARGIN, p.y));
-                });
-            }
-
-            function draw() {
-                ctx.clearRect(0, 0, width, height);
-                ctx.fillStyle = BG_COLOR;
-                ctx.fillRect(0, 0, width, height);
-                ctx.lineWidth = 1.2;
-                ctx.shadowColor = LINE_GLOW;
-                ctx.shadowBlur = 6;
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i + 1; j < particles.length; j++) {
-                        const p1 = particles[i];
-                        const p2 = particles[j];
-                        const dx = p1.x - p2.x;
-                        const dy = p1.y - p2.y;
-                        const dist = Math.sqrt(dx * dx + dy * dy);
-                        if (dist < CONNECT_DISTANCE) {
-                            ctx.strokeStyle = 'rgba(132, 189, 160, ' + (1 - dist / CONNECT_DISTANCE * 0.5) + ')';
-                            ctx.beginPath();
-                            ctx.moveTo(p1.x, p1.y);
-                            ctx.lineTo(p2.x, p2.y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = DOT_COLOR;
-                ctx.fillStyle = DOT_COLOR;
-                particles.forEach(function (p) {
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, 2.8, 0, Math.PI * 2);
-                    ctx.fill();
-                });
-                ctx.shadowBlur = 0;
-            }
-
-            function animate() {
-                updateParticles();
-                draw();
-                requestAnimationFrame(animate);
-            }
-
-            let resizeTimer;
-            window.addEventListener('resize', function () {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(resizeCanvas, 80);
-            });
-            window.addEventListener('mousemove', onMouseMove);
-            canvas.addEventListener('mouseleave', function () { mousePresent = false; });
-            canvas.addEventListener('mouseenter', function () { mousePresent = true; });
-            resizeCanvas();
-            animate();
+            var t;
+            try { t = localStorage.getItem('optihk-theme'); } catch (e) {}
+            if (t === 'bright') document.documentElement.setAttribute('data-theme', 'bright');
         })();
     </script>
+    <script src="assets/js/industrial-pages.js"></script>
+    <script src="assets/js/interactive-background.js"></script>
 </body>
 </html>

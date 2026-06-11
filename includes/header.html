@@ -1,0 +1,42 @@
+    <header class="site-header">
+        <div class="nav-shell">
+            <a class="brand" href="index.html" aria-label="OptiHK home">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+                        <path d="M5 16h7l4-8 4 16 4-8h3" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+                    </svg>
+                </span>
+                <img class="theme-logo" src="./images/optihk_dark.png" data-logo-bright="./images/optihk_bright.png" data-logo-dark="./images/optihk_dark.png" alt="OptiHK">
+            </a>
+            <nav class="desktop-nav" aria-label="Primary navigation">
+                <a href="index.html"{{ACTIVE_HOME}}>Home</a>
+                <a href="Products.html"{{ACTIVE_PRODUCTS}}>Products</a>
+                <a href="carrers.html"{{ACTIVE_CAREERS}}>Careers</a>
+                <a href="news.html"{{ACTIVE_NEWS}}>News</a>
+                <a href="team.html"{{ACTIVE_TEAM}}>Team</a>
+            </nav>
+            <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
+        </div>
+    </header>
+
+    <button class="theme-toggle" type="button" id="theme-toggle" data-theme="bright" aria-label="Toggle color mode" title="Toggle dark/light mode">
+        <span class="theme-toggle-thumb"></span>
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-head">
+                <span class="eyebrow">OptiHK</span>
+                <button class="menu-close" type="button" aria-label="Close menu">Close</button>
+            </div>
+            <nav aria-label="Mobile navigation">
+                <a href="index.html">Home</a>
+                <a href="Products.html">Products</a>
+                <a href="carrers.html">Careers</a>
+                <a href="news.html">News</a>
+                <a href="team.html">Team</a>
+            </nav>
+        </div>
+    </div>

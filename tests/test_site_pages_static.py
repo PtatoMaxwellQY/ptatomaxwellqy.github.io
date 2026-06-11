@@ -3,7 +3,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = ("Products.html", "Technology.html", "jobs.html", "news.html", "team.html")
+PAGES = ("Products.html", "Technology.html", "carrers.html", "news.html", "team.html")
 
 
 class SitePagesStaticTest(unittest.TestCase):
@@ -40,7 +40,9 @@ class SitePagesStaticTest(unittest.TestCase):
                 self.assertIn('<span class="brand-mark" aria-hidden="true">', header)
                 self.assertIn('<svg viewBox="0 0 32 32"', header)
                 self.assertIn('stroke-linecap="square"', header)
-                self.assertIn('<img src="./images/navbar_logo.png" alt="OptiHK">', header)
+                self.assertIn('<img class="theme-logo" src="./images/optihk_dark.png"', header)
+                self.assertIn('data-logo-bright="./images/optihk_bright.png"', header)
+                self.assertIn('data-logo-dark="./images/optihk_dark.png"', header)
                 self.assertNotIn(">IO</span>", header)
                 self.assertNotIn("Silicon photonics</span>", header)
 
@@ -150,7 +152,7 @@ class SitePagesStaticTest(unittest.TestCase):
         self.assertNotIn("MxPIC design flow</span>", html)
 
     def test_jobs_page_has_filters_and_stronger_cv_path(self):
-        html = self.read("jobs.html")
+        html = self.read("carrers.html")
         self.assertIn("filter-bar", html)
         self.assertIn('data-filter-group="jobs"', html)
         self.assertIn('data-filter-target="pic"', html)

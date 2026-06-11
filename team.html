@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="bright">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/industrial-pages.css">
 </head>
-<body>
+<body class="team-page has-interactive-bg">
+    <canvas id="bg-canvas" data-bg-variant="team" aria-hidden="true"></canvas>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
         <div class="nav-shell">
@@ -18,23 +19,24 @@
                         <path d="M5 16h7l4-8 4 16 4-8h3" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
                     </svg>
                 </span>
-                <img src="./images/navbar_logo.png" alt="OptiHK">
+                <img class="theme-logo" src="./images/optihk_dark.png" data-logo-bright="./images/optihk_bright.png" data-logo-dark="./images/optihk_dark.png" alt="OptiHK">
             </a>
             <nav class="desktop-nav" aria-label="Primary navigation">
                 <a href="index.html">Home</a>
-                <a href="Technology.html">Technology</a>
                 <a href="Products.html">Products</a>
-                <a href="jobs.html">Jobs</a>
+                <a href="carrers.html">Careers</a>
                 <a href="news.html">News</a>
                 <a href="team.html" aria-current="page">Team</a>
             </nav>
-            <div class="theme-selector" role="group" aria-label="Color mode selection">
-                <button type="button" data-theme-choice="bright" aria-pressed="false">Bright</button>
-                <button type="button" data-theme-choice="dark" aria-pressed="true">Dark</button>
-            </div>
             <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
         </div>
     </header>
+
+    <button class="theme-toggle" type="button" id="theme-toggle" data-theme="bright" aria-label="Toggle color mode" title="Toggle dark/light mode">
+        <span class="theme-toggle-thumb"></span>
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
 
     <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
         <div class="mobile-menu-panel">
@@ -44,9 +46,8 @@
             </div>
             <nav aria-label="Mobile navigation">
                 <a href="index.html">Home</a>
-                <a href="Technology.html">Technology</a>
                 <a href="Products.html">Products</a>
-                <a href="jobs.html">Jobs</a>
+                <a href="carrers.html">Careers</a>
                 <a href="news.html">News</a>
                 <a href="team.html">Team</a>
             </nav>
@@ -62,12 +63,6 @@
 
         <section class="section">
             <div class="team-wrap">
-                <div class="tag-row reveal-on-scroll">
-                    <span class="tag">Research leadership</span>
-                    <span class="tag">Product engineering</span>
-                    <span class="tag">Packaging execution</span>
-                </div>
-
                 <div class="role-group">
                     <span class="team-section-label">Leadership</span>
                 </div>
@@ -75,7 +70,7 @@
                     <article class="team-card reveal-on-scroll">
                         <img src="images/poeple/HonKiTsang.png" alt="Prof. Hon Ki Tsang" loading="lazy" decoding="async">
                         <h2>Prof. Hon Ki Tsang</h2>
-                        <p>Director, founder of OptiHK</p>
+                        <p>Director, founder of OptiHK, IEEE Fellow, Optica Fellow, Dean of Faculty of Engineering CUHK</p>
                     </article>
                     <article class="team-card reveal-on-scroll">
                         <img src="images/poeple/LuanJiaPeng.jpg" alt="Dr. Luan Jiapeng" loading="lazy" decoding="async">
@@ -90,7 +85,7 @@
                 </div>
 
                 <div class="role-group">
-                    <span class="team-section-label">Engineering contributors</span>
+                    <span class="team-section-label">Team member</span>
                 </div>
                 <div class="team-grid">
                     <article class="team-card reveal-on-scroll">
@@ -104,14 +99,30 @@
                         <p>Senior Engineer</p>
                     </article>
                     <article class="team-card reveal-on-scroll">
-                        <img src="images/poeple/Li_Jixun.jpg" alt="Miss. Li Jixun" loading="lazy" decoding="async">
-                        <h2>Miss. Li Jixun</h2>
-                        <p>Manager</p>
-                    </article>
-                    <article class="team-card reveal-on-scroll">
                         <img src="images/poeple/YiDan.png" alt="Yi Dan" loading="lazy" decoding="async">
                         <h2>Yi Dan</h2>
                         <p>Engineer</p>
+                    </article>
+                    <article class="team-card reveal-on-scroll">
+                        <img src="images/poeple/Li_Jixun.jpg" alt="Li Jixun" loading="lazy" decoding="async">
+                        <h2>Li Jixun</h2>
+                        <p>Manager</p>
+                    </article>
+                    <article class="team-card reveal-on-scroll">
+                        <h2>Liang Tianyu</h2>
+                        <p>Senior Engineer, Master of Cornell.</p>
+                    </article>
+                    <article class="team-card reveal-on-scroll">
+                        <h2>Peng Kun</h2>
+                        <p>Engineer, Master of CUHK.</p>
+                    </article>
+                    <article class="team-card reveal-on-scroll">
+                        <h2>Zhu Yanji</h2>
+                        <p>Engineer, Master of CUHK.</p>
+                    </article>
+                    <article class="team-card reveal-on-scroll">
+                        <h2>Li Jingwen</h2>
+                        <p>Engineer.</p>
                     </article>
                     <article class="team-card reveal-on-scroll">
                         <img src="images/poeple/Join_us.png" alt="Join us" loading="lazy" decoding="async">
@@ -120,23 +131,95 @@
                     </article>
                 </div>
 
+
+                </div>
+
                 <div class="inquiry-panel reveal-on-scroll">
                     <div>
                         <span class="meta-label">Work with the team</span>
                         <h2>Bring a product, packaging, or software problem to the people building the platform.</h2>
                     </div>
-                    <a class="button-link" href="index.html#contact">Contact US</a>
+                    <a class="button-link" href="index.html#footer-contact-title">Contact US</a>
                 </div>
             </div>
         </section>
     </main>
-
     <footer class="site-footer">
-        <div class="container footer-row">
-            <span>Copyright &copy; 2026 OptiHK. All Rights Reserved.</span>
-            <span>Silicon photonics, optical I/O, and advanced photonic packaging.</span>
+        <div class="container footer-main">
+            <section class="footer-company" aria-label="OptiHK company information">
+                <img class="footer-brand theme-logo" src="./images/optihk_dark.png" data-logo-bright="./images/optihk_bright.png" data-logo-dark="./images/optihk_dark.png" alt="OptiHK">
+                <p>OptiHK develops silicon photonics, optical I/O engines, sensing platforms, and photonic automation tools for compact optical systems.</p>
+                <div class="footer-company-info">
+                    <span>Unit 1015, Building 19W, 19 Science Park West Avenue, Pak Shek Kok, N.T., Hong Kong</span>
+                    <a href="mailto:info@optihk.com">Contact: info@optihk.com</a>
+                </div>
+            </section>
+            <div class="footer-links" aria-label="Footer navigation">
+                <section class="footer-column">
+                    <h2>Solutions</h2>
+                    <nav aria-label="Footer solutions navigation">
+                        <a href="Products.html">Optical IO solutions</a>
+                        <a href="Products.html">Mini sensing solutions</a>
+                        <a href="Products.html">Photonic automation</a>
+                    </nav>
+                </section>
+                <section class="footer-column">
+                    <h2>Company</h2>
+                    <nav aria-label="Footer company navigation">
+                        <a href="team.html">Team</a>
+                        <a href="news.html">News</a>
+                    </nav>
+                </section>
+                <section class="footer-column">
+                    <h2>Careers</h2>
+                    <nav aria-label="Footer careers navigation">
+                        <a href="carrers.html">Open roles</a>
+                        <a href="#footer-contact-title">Send CV</a>
+                        <a href="#footer-contact-title">Product inquiry</a>
+                    </nav>
+                </section>
+            </div>
+            <section class="footer-contact-box" aria-labelledby="footer-contact-title">
+                <h2 id="footer-contact-title">Communication</h2>
+                <p>Send a note for hiring, collaboration, supplier discussion, or product interest.</p>
+                <form class="footer-form" action="/api/contact" method="post">
+                    <input type="hidden" name="source" value="footer">
+                    <div class="footer-form-row">
+                        <div>
+                            <label for="footer-name">Name</label>
+                            <input type="text" id="footer-name" name="name" autocomplete="name" required>
+                        </div>
+                        <div>
+                            <label for="footer-email">Email</label>
+                            <input type="email" id="footer-email" name="email" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="footer-message">Message</label>
+                        <textarea id="footer-message" name="message" required></textarea>
+                    </div>
+                    <button class="footer-submit" type="submit">Send message</button>
+                </form>
+            </section>
+        </div>
+        <div class="container footer-bottom">
+            <div class="footer-legal">
+                <span>Copyright &copy; 2026 OptiHK. All Rights Reserved.</span>
+                <a href="mailto:info@optihk.com">Contact: info@optihk.com</a>
+            </div>
+            <span class="footer-meta">Silicon photonics, optical I/O, and advanced photonic packaging.</span>
         </div>
     </footer>
+
+    
+    <script>
+        (function () {
+            var t;
+            try { t = localStorage.getItem('optihk-theme'); } catch (e) {}
+            if (t === 'bright') document.documentElement.setAttribute('data-theme', 'bright');
+        })();
+    </script>
     <script src="assets/js/industrial-pages.js"></script>
+    <script src="assets/js/interactive-background.js"></script>
 </body>
 </html>
