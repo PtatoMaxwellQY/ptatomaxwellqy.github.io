@@ -99,6 +99,49 @@
 
 (function () {
     var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var revealSelectors = [
+        '.section-head',
+        '.why-card',
+        '.pathway',
+        '.product-lane',
+        '.precision-card',
+        '.process-band',
+        '.job-card',
+        '.inquiry-panel',
+        '.team-card',
+        '.featured-news',
+        '.news-card'
+    ];
+
+    revealSelectors.forEach(function (selector) {
+        document.querySelectorAll(selector).forEach(function (item) {
+            item.classList.add('reveal-on-scroll');
+        });
+    });
+
+    document.querySelectorAll('.team-grid, .product-wrap, .precision-grid, .jobs-wrap, .news-grid, .pathway-grid, .why-grid').forEach(function (group) {
+        group.querySelectorAll('.reveal-on-scroll').forEach(function (item, index) {
+            item.style.setProperty('--reveal-delay', Math.min(index, 5) * 90 + 'ms');
+        });
+    });
+
+    document.querySelectorAll('.reveal-on-scroll').forEach(function (item, index) {
+        if (!item.style.getPropertyValue('--reveal-delay')) {
+            item.style.setProperty('--reveal-delay', (index % 3) * 80 + 'ms');
+        }
+        if (!item.hasAttribute('data-reveal-style')) {
+            var style = 'lift';
+            if (item.matches('.product-lane, .pathway, .featured-news')) {
+                style = index % 2 === 0 ? 'slide-left' : 'slide-right';
+            } else if (item.matches('.team-card, .news-card, .why-card')) {
+                style = 'zoom';
+            } else if (item.matches('.job-card, .precision-card')) {
+                style = index % 2 === 0 ? 'slide-left' : 'slide-right';
+            }
+            item.setAttribute('data-reveal-style', style);
+        }
+    });
+
     var revealItems = document.querySelectorAll('.reveal-on-scroll');
     if (reducedMotion || !('IntersectionObserver' in window)) {
         revealItems.forEach(function (item) { item.classList.add('is-visible'); });
@@ -112,10 +155,9 @@
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.16 });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
 
-    revealItems.forEach(function (item, index) {
-        item.style.transitionDelay = (index % 3) * 80 + 'ms';
+    revealItems.forEach(function (item) {
         observer.observe(item);
     });
 })();

@@ -28,8 +28,8 @@
             speed: 0.36,
             lineWidth: 1,
             dotSize: 2.1,
-            dark: { bg: '#040807', line: [166, 231, 226], glow: '#9ad8d8', dot: '#d95a68' },
-            bright: { bg: '#f4f8f7', line: [0, 107, 115], glow: '#2d9b8b', dot: '#b94b5a' }
+            dark: { line: [168, 218, 220], glow: '#A8DADC', dot: '#E63946' },
+            bright: { line: [0, 109, 119], glow: '#457B9D', dot: '#E63946' }
         },
         product: {
             count: 168,
@@ -40,8 +40,8 @@
             speed: 0.5,
             lineWidth: 1.2,
             dotSize: 2.8,
-            dark: { bg: '#0b1012', line: [132, 189, 160], glow: '#9ad8d8', dot: '#d96a72' },
-            bright: { bg: '#eef5f3', line: [45, 155, 139], glow: '#2d9b8b', dot: '#c05d66' }
+            dark: { line: [102, 167, 173], glow: '#A8DADC', dot: '#E8687F' },
+            bright: { line: [69, 123, 157], glow: '#006D77', dot: '#D90429' }
         },
         technology: {
             count: 150,
@@ -52,8 +52,8 @@
             speed: 0.44,
             lineWidth: 1.1,
             dotSize: 2.35,
-            dark: { bg: '#060b0d', line: [126, 169, 255], glow: '#7aa7ff', dot: '#b891ff' },
-            bright: { bg: '#f2f7f8', line: [42, 97, 150], glow: '#5d8ed0', dot: '#7658b8' }
+            dark: { line: [143, 176, 196], glow: '#8FB0C4', dot: '#A8DADC' },
+            bright: { line: [88, 108, 122], glow: '#457B9D', dot: '#006D77' }
         },
         careers: {
             count: 130,
@@ -64,8 +64,8 @@
             speed: 0.38,
             lineWidth: 1,
             dotSize: 2.25,
-            dark: { bg: '#070b0a', line: [214, 178, 92], glow: '#e6c06d', dot: '#f2b84b' },
-            bright: { bg: '#f7f8f3', line: [142, 95, 28], glow: '#b68436', dot: '#b46a24' }
+            dark: { line: [235, 97, 107], glow: '#E63946', dot: '#F1FAEE' },
+            bright: { line: [174, 3, 33], glow: '#006D77', dot: '#457B9D' }
         },
         news: {
             count: 118,
@@ -76,8 +76,8 @@
             speed: 0.34,
             lineWidth: 0.95,
             dotSize: 2.05,
-            dark: { bg: '#060909', line: [221, 96, 112], glow: '#d95a68', dot: '#ff8a65' },
-            bright: { bg: '#f8f6f6', line: [170, 60, 78], glow: '#b94b5a', dot: '#cf7442' }
+            dark: { line: [125, 211, 252], glow: '#7DD3FC', dot: '#38BDF8' },
+            bright: { line: [14, 165, 233], glow: '#38BDF8', dot: '#0284C7' }
         },
         team: {
             count: 136,
@@ -88,8 +88,8 @@
             speed: 0.4,
             lineWidth: 1,
             dotSize: 2.2,
-            dark: { bg: '#050908', line: [107, 216, 190], glow: '#79c4b1', dot: '#f087bc' },
-            bright: { bg: '#f4f8f7', line: [38, 137, 124], glow: '#006b73', dot: '#b85a91' }
+            dark: { line: [51, 138, 146], glow: '#66A7AD', dot: '#66A7AD' },
+            bright: { line: [51, 138, 146], glow: '#006D77', dot: '#66A7AD' }
         }
     };
 
@@ -97,11 +97,19 @@
         return root.getAttribute('data-theme') === 'bright' ? 'bright' : 'dark';
     }
 
+    function themeBackground() {
+        var fallback = currentTheme() === 'bright' ? '#F1FAEE' : '#09090D';
+        if (!window.getComputedStyle) return fallback;
+
+        var value = window.getComputedStyle(root).getPropertyValue('--opti-bg').trim();
+        return value || fallback;
+    }
+
     function settings() {
         var config = variants[variant] || variants.product;
         var colors = config[currentTheme()] || config.dark;
         return {
-            bg: colors.bg,
+            bg: themeBackground(),
             line: colors.line,
             glow: colors.glow,
             dot: colors.dot,

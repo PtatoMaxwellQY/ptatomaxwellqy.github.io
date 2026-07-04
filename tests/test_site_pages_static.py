@@ -78,6 +78,27 @@ class SitePagesStaticTest(unittest.TestCase):
         self.assertIn(".product-page .delivery-flow p", css)
         self.assertIn("font-size: calc(1em + 2pt);", css)
 
+    def test_team_person_cards_use_golden_ratio_boxes(self):
+        css = (ROOT / "assets/css/industrial-pages.css").read_text(encoding="utf-8")
+        html = self.read("team.html")
+        self.assertIn(".team-card {\n    --team-column-width:", css)
+        self.assertIn("aspect-ratio: 1 / 1.618;", css)
+        self.assertIn("grid-template-columns: repeat(auto-fit, minmax(17rem, 22rem));", css)
+        self.assertIn("justify-content: start;", css)
+        self.assertIn("margin: 0 auto 1rem;", css)
+        self.assertIn("object-position: center top;", css)
+        self.assertIn(".team-card h2 {\n    width: 100%;\n    text-align: center;", css)
+        self.assertIn(".team-card p {\n    width: var(--team-column-width);", css)
+        self.assertIn("font-size: max(0.95rem, calc(var(--opti-font-min) - 2pt));", css)
+        self.assertIn("text-align: left;", css)
+        self.assertIn(".team-card p span {\n    display: flex;", css)
+        self.assertIn(".team-card p span::before", css)
+        self.assertIn("background: var(--opti-primary);", css)
+        self.assertIn("overflow: hidden;", css)
+        self.assertIn("<p><span>Director</span><span>Founder of OptiHK</span>", html)
+        self.assertIn("<span>Dean of Faculty of Engineering CUHK</span>", html)
+        self.assertIn("<p><span>Director</span><span>CEO</span><span>Senior Engineer</span></p>", html)
+
     def test_products_page_has_product_first_lanes_and_mxpic(self):
         html = self.read("Products.html")
         self.assertIn('class="product-lane reveal-on-scroll"', html)
@@ -105,8 +126,10 @@ class SitePagesStaticTest(unittest.TestCase):
         for text in (
             'class="delivery-flow reveal-on-scroll"',
             "Prototype to packaged module",
+            "Customer / partner inquiry",
+            "Map a product lane to your optical system target.",
         ):
-            self.assertIn(text, html)
+            self.assertNotIn(text, html)
         for removed in (
             "Chip to package to layout",
             "Bandwidth pressure",
@@ -119,7 +142,6 @@ class SitePagesStaticTest(unittest.TestCase):
         ):
             self.assertNotIn(removed, html)
         for selector in (
-            ".delivery-flow",
             ".product-lane::before",
         ):
             self.assertIn(selector, css)
@@ -166,7 +188,9 @@ class SitePagesStaticTest(unittest.TestCase):
         self.assertIn('class="team-section-label"', html)
         css = (ROOT / "assets/css/industrial-pages.css").read_text(encoding="utf-8")
         self.assertIn("object-position: center top;", css)
-        self.assertIn("min-height: 8.5rem;", css)
+        self.assertIn("aspect-ratio: 1 / 1.618;", css)
+        self.assertNotIn("Work with the team", html)
+        self.assertNotIn("Bring a product, packaging, or software problem to the people building the platform.", html)
 
     def test_news_page_has_polished_newsroom_layout(self):
         html = self.read("news.html")
@@ -175,6 +199,8 @@ class SitePagesStaticTest(unittest.TestCase):
         self.assertIn("Company", html)
         self.assertIn("Technology", html)
         self.assertIn("Careers", html)
+        self.assertNotIn("Media / partner update", html)
+        self.assertNotIn("Share an event, collaboration, or product inquiry with OptiHK.", html)
 
     def test_shared_interactions_support_filters_and_theme_persistence(self):
         js = (ROOT / "assets/js/industrial-pages.js").read_text(encoding="utf-8")

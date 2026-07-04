@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="bright">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OptiHK | 技术</title>
+    <meta name="description" content="OptiHK 硅光子技术平台：调制器、低损耗接口、复用与封装流程。">
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/css/industrial-pages.css">
+</head>
+<body class="technology-page has-interactive-bg">
+    <canvas id="bg-canvas" data-bg-variant="technology" aria-hidden="true"></canvas>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header">
+        <div class="nav-shell">
+            <a class="brand" href="index.html" aria-label="OptiHK 首页">
+                <span class="brand-mark" aria-hidden="true">
+                    <svg viewBox="0 0 32 32" width="22" height="22" fill="none">
+                        <path d="M5 16h7l4-8 4 16 4-8h3" stroke="currentColor" stroke-width="2" stroke-linecap="square"/>
+                    </svg>
+                </span>
+                <img class="theme-logo" src="../images/optihk_dark.png" data-logo-bright="../images/optihk_bright.png" data-logo-dark="../images/optihk_dark.png" alt="OptiHK">
+            </a>
+            <nav class="desktop-nav" aria-label="主导航">
+                <a href="index.html">首页</a>
+                <a href="Products.html" aria-current="page">产品</a>
+                <a href="carrers.html">职位</a>
+                <a href="team.html">团队</a>
+                <a class="language-switch" href="../Technology.html" lang="en" hreflang="en">EN</a>
+            </nav>
+            <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false">菜单</button>
+        </div>
+    </header>
+
+    <button class="theme-toggle" type="button" id="theme-toggle" data-theme="bright" aria-label="切换色彩模式" title="切换深色/浅色模式">
+        <span class="theme-toggle-thumb"></span>
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-head">
+                <span class="eyebrow">OptiHK</span>
+                <button class="menu-close" type="button" aria-label="关闭菜单">关闭</button>
+            </div>
+            <nav aria-label="手机导航">
+                <a href="index.html">首页</a>
+                <a href="Products.html">产品</a>
+                <a href="carrers.html">职位</a>
+                <a href="team.html">团队</a>
+                <a class="language-switch" href="../Technology.html" lang="en" hreflang="en">EN</a>
+            </nav>
+        </div>
+    </div>
+
+    <main id="main">
+        <section class="page-hero">
+            <span class="eyebrow">OptiHK 平台</span>
+            <h1 class="page-title">围绕产品交付构建的技术。</h1>
+            <p class="page-lede">集成光子、电子光子协同设计、封装、验证与 MxPIC EDA 流程，围绕紧凑型光引擎协同展开。</p>
+        </section>
+
+        <section class="section">
+            <div class="section-headline">
+                <span class="eyebrow">产品优先能力图谱</span>
+                <h2>每项能力都对应产品接口，而非孤立研究模块。</h2>
+            </div>
+            <div class="capability-map">
+                <article class="precision-card reveal-on-scroll">
+                    <span class="meta-label">能力 01</span>
+                    <h2>集成光子电路</h2>
+                    <p>面向紧凑型光引擎的无源元件、路由结构、耦合器、分束器、滤波器与封装感知 PIC 版图。</p>
+                    <div class="tag-row"><span class="tag">PIC 版图</span><span class="tag">光路</span></div>
+                </article>
+                <article class="precision-card reveal-on-scroll">
+                    <span class="meta-label">能力 02</span>
+                    <h2>EIC / PIC 协同设计</h2>
+                    <p>围绕高速光 I/O 约束设计驱动器、接收器、监测、偏压与控制接口。</p>
+                    <div class="tag-row"><span class="tag">混合信号</span><span class="tag">高速路径</span></div>
+                </article>
+                <article class="precision-card reveal-on-scroll">
+                    <span class="meta-label">能力 03</span>
+                    <h2>先进封装</h2>
+                    <p>在光子芯片、电子芯片与光纤接口之间进行热、机械、光耦合与组装规划。</p>
+                    <div class="tag-row"><span class="tag">低损耗接口</span><span class="tag">组装</span></div>
+                </article>
+                <article class="precision-card reveal-on-scroll">
+                    <span class="meta-label">能力 04</span>
+                    <h2>验证系统</h2>
+                    <p>测试治具、测量流程与原型反馈回圈，将光引擎概念转化为工程样品。</p>
+                    <div class="tag-row"><span class="tag">测量</span><span class="tag">原型反馈</span></div>
+                </article>
+                <article class="precision-card reveal-on-scroll">
+                    <span class="meta-label">能力 05</span>
+                    <h2>MxPIC EDA 流程</h2>
+                    <p>以软件辅助的光子设计流程，连接架构、原理图意图、版图限制与封装感知验证。</p>
+                    <div class="tag-row"><span class="tag">光子 EDA</span><span class="tag">设计自动化</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section section-compact">
+            <div class="process-band reveal-on-scroll" aria-label="OptiHK process">
+                <div><span>01</span><strong>架构</strong><p>定义通道数、光路、封装外形与客户接口。</p></div>
+                <div><span>02</span><strong>仿真 / 设计</strong><p>使用 PIC、EIC 与 MxPIC EDA 流程收敛至可制造版图。</p></div>
+                <div><span>03</span><strong>封装集成</strong><p>及早对齐芯片、光纤、板级、热与组装限制。</p></div>
+                <div><span>04</span><strong>验证</strong><p>测量、调试，并将原型数据反馈到下一轮设计回圈。</p></div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-main">
+            <section class="footer-company" aria-label="OptiHK company information">
+                <img class="footer-brand theme-logo" src="../images/optihk_dark.png" data-logo-bright="../images/optihk_bright.png" data-logo-dark="../images/optihk_dark.png" alt="OptiHK">
+                <p>OptiHK 开发硅光子、光 I/O 引擎、传感平台与光子自动化工具，服务于紧凑型光学系统。</p>
+                <div class="footer-company-info">
+                    <span>香港新界白石角科学园西大道19号19W大楼1015室</span>
+                    <a href="mailto:info@optihk.com">联系：info@optihk.com</a>
+                </div>
+            </section>
+            <div class="footer-links" aria-label="页脚导航">
+                <section class="footer-column">
+                    <h2>解决方案</h2>
+                    <nav aria-label="页脚方案导航">
+                        <a href="Products.html">光 I/O 解决方案</a>
+                        <a href="Products.html">小型传感解决方案</a>
+                        <a href="Products.html">光子自动化</a>
+                    </nav>
+                </section>
+                <section class="footer-column">
+                    <h2>公司</h2>
+                    <nav aria-label="页脚公司导航">
+                        <a href="team.html">团队</a>
+                    </nav>
+                </section>
+                <section class="footer-column">
+                    <h2>职位</h2>
+                    <nav aria-label="页脚职位导航">
+                        <a href="carrers.html">招聘职位</a>
+                        <a href="#footer-contact-title">提交简历</a>
+                        <a href="#footer-contact-title">产品咨询</a>
+                    </nav>
+                </section>
+            </div>
+            <section class="footer-contact-box" aria-labelledby="footer-contact-title">
+                <h2 id="footer-contact-title">联系我们</h2>
+                <p>如需招聘、合作、供应商洽谈或产品咨询，欢迎留下信息。</p>
+                <form class="footer-form" action="/api/contact" method="post">
+                    <input type="hidden" name="source" value="footer">
+                    <div class="footer-form-row">
+                        <div>
+                            <label for="footer-name">姓名</label>
+                            <input type="text" id="footer-name" name="name" autocomplete="name" required>
+                        </div>
+                        <div>
+                            <label for="footer-email">邮箱</label>
+                            <input type="email" id="footer-email" name="email" autocomplete="email" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="footer-message">信息</label>
+                        <textarea id="footer-message" name="message" required></textarea>
+                    </div>
+                    <button class="footer-submit" type="submit">发送信息</button>
+                </form>
+            </section>
+        </div>
+        <div class="container footer-bottom">
+            <div class="footer-legal">
+                <span>Copyright &copy; 2026 OptiHK. 保留所有权利。</span>
+                <a href="mailto:info@optihk.com">联系：info@optihk.com</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script>
+        (function () {
+            var t;
+            try { t = localStorage.getItem('optihk-theme'); } catch (e) {}
+            if (t === 'bright') document.documentElement.setAttribute('data-theme', 'bright');
+        })();
+    </script>
+    <script src="../assets/js/industrial-pages.js"></script>
+    <script src="../assets/js/interactive-background.js"></script>
+</body>
+</html>

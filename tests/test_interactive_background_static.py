@@ -28,8 +28,8 @@ class InteractiveBackgroundStaticTest(unittest.TestCase):
             r"(?P<name>home|product|technology|careers|news|team): \{\s+"
             r"count: (?P<count>\d+),\s+"
             r"distance: (?P<distance>\d+),.*?"
-            r"dark: \{ bg: '[^']+', line: \[(?P<dark_line>[^\]]+)\], glow: '[^']+', dot: '(?P<dark_dot>[^']+)' \},\s+"
-            r"bright: \{ bg: '[^']+', line: \[(?P<bright_line>[^\]]+)\], glow: '[^']+', dot: '(?P<bright_dot>[^']+)' \}",
+            r"dark: \{ line: \[(?P<dark_line>[^\]]+)\], glow: '[^']+', dot: '(?P<dark_dot>[^']+)' \},\s+"
+            r"bright: \{ line: \[(?P<bright_line>[^\]]+)\], glow: '[^']+', dot: '(?P<bright_dot>[^']+)' \}",
             re.S,
         )
         return {
